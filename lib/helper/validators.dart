@@ -13,7 +13,7 @@ class Validators {
           ? "Invalid Phone number"
           : null;
 
-  static onTextChange({
+  static bool? onTextChange({
     required String value,
     int? validationLenght,
     RegExp? validationRegax,
@@ -82,6 +82,9 @@ class Validators {
 
         }
       }
+    } else {
+      return false;
     }
+    return null;
   }
 }

@@ -24,6 +24,10 @@ class CustomTextField extends StatefulWidget {
     this.validationRegax,
     this.isPhoneNumber = false,
     this.isonchange = true,
+    this.errorBorderColor,
+    this.underLineField = false,
+    this.successBorderColor = Colors.green,
+    this.failureBorderColor = AppColors.theme,
   }) : super(key: key);
   final String hint, title;
   final RegExp? validationRegax;
@@ -35,9 +39,9 @@ class CustomTextField extends StatefulWidget {
   final VoidCallback? onSuffixTap;
   final TextInputType inputType;
   final Color? fillColor;
-  Color? borderColor;
+  Color? borderColor, errorBorderColor, successBorderColor, failureBorderColor;
   final bool? isPassword, isPhoneNumber, isonchange;
-  bool? isclear;
+  bool? isclear, underLineField;
 
   bool obscureText;
 
@@ -61,9 +65,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
         SizedBox(height: 1.h),
         TextFormField(
           controller: widget.textEditingController,
-          onChanged: widget.isonchange == true
-              ? widget.onChange ?? ontextChange
-              : null,
+          onChanged: widget.onChange,
+          //?? ontextChange,
           keyboardType: widget.inputType,
           cursorColor: AppColors.theme,
           style: Helper.setTextStyle(12.sp, FontWeight.w500),
@@ -72,22 +75,29 @@ class _CustomTextFieldState extends State<CustomTextField> {
           decoration: InputDecoration(
             enabled: true,
             filled: true,
+
             fillColor: widget.fillColor ?? Colors.white, // AppColors.lightGrey,
             hintText: widget.hint,
             hintStyle: Helper.setTextStyle(12.sp, FontWeight.w400,
                 color: AppColors.text.withOpacity(0.7)),
             errorStyle: Helper.setTextStyle(12.sp, FontWeight.w300,
                 color: AppColors.red),
-            errorBorder: _setBorder(
-                //  AppColors.yellow),
-                widget.borderColor ?? AppColors.grey),
-            focusedErrorBorder: _setBorder(
-                //AppColors.yellow),
+            errorBorder: widget.underLineField == true
+                ? _setUnderLineBorder()
+                : _setBorder(widget.errorBorderColor ?? Colors.transparent),
+            focusedErrorBorder: widget.underLineField == true
+                ? _setUnderLineBorder()
+                : _setBorder(widget.errorBorderColor ?? Colors.transparent),
+            border: widget.underLineField == true
+                ? _setUnderLineBorder()
+                : _setBorder(widget.borderColor ?? Colors.transparent),
+            enabledBorder: widget.underLineField == true
+                ? _setUnderLineBorder()
+                : _setBorder(widget.borderColor ?? Colors.transparent),
+            focusedBorder: widget.underLineField == true
+                ? _setUnderLineBorder()
+                : _setBorder(widget.borderColor ?? Colors.transparent),
 
-                widget.borderColor ?? AppColors.red),
-            border: _setBorder(widget.borderColor ?? AppColors.grey),
-            enabledBorder: _setBorder(widget.borderColor ?? AppColors.grey),
-            focusedBorder: _setBorder(widget.borderColor ?? AppColors.orange),
             suffix: _suffixIcon(),
           ),
         ),
@@ -96,8 +106,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
 
-  void ontextChange(String value) {
-    Validators.onTextChange(value: value);
+  void ontextChange(value) {
+    if (widget.validationRegax != null) {
+      bool? isValidate = Validators.onTextChange(
+          value: value.toString(), validationRegax: widget.validationRegax);
+      if (isValidate == true) {
+        setState(() {
+          widget.borderColor = widget.successBorderColor;
+        });
+      } else {
+        setState(() {
+          widget.borderColor = widget.failureBorderColor;
+        });
+      }
+    }
   }
 
   Widget? _suffixIcon() {
@@ -138,4 +160,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   _setBorder(Color color) => OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
       borderSide: BorderSide(color: color, width: 2));
+  _setUnderLineBorder() => UnderlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(color: Colors.transparent, width: 2));
 }
