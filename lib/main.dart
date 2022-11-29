@@ -4,9 +4,10 @@ import 'package:chat/constants/app_colors.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:sizer/sizer.dart';
+//import 'package:sizer/sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OverlaySupport(
-      child: Sizer(
-        builder: (context, orientation, deviceType) {
+      child: ScreenUtilInit(
+        // designSize: MediaQuery.of(context).size,
+        builder: (context, child) {
           return GetMaterialApp(
             title: 'WeChat',
             debugShowCheckedModeBanner: false,

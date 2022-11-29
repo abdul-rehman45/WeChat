@@ -1,7 +1,7 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BumperActivityCard extends StatelessWidget {
   const BumperActivityCard({

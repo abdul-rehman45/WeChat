@@ -2,7 +2,7 @@ import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:chat/widgets/button/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FavoritesCard extends StatelessWidget {
   const FavoritesCard({
@@ -29,8 +29,8 @@ class FavoritesCard extends StatelessWidget {
                 spreadRadius: 1,
                 color: Colors.black.withOpacity(0.2))
           ]),
-      padding: EdgeInsets.symmetric(horizontal: 10.sp, vertical: 15.sp),
-      margin: EdgeInsets.fromLTRB(10.sp, 0, 10.sp, 10.sp),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+      margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -40,7 +40,7 @@ class FavoritesCard extends StatelessWidget {
                 CircleAvatar(
                   foregroundImage: NetworkImage(iconPath!),
                 ),
-              SizedBox(width: 5.sp),
+              SizedBox(width: 5.w),
               Expanded(
                 child: Text(
                   title,
@@ -49,15 +49,15 @@ class FavoritesCard extends StatelessWidget {
                       color: AppColors.text),
                 ),
               ),
-              SizedBox(width: 5.sp),
+              SizedBox(width: 5.w),
               CustomButton(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 8.sp, vertical: 5.sp),
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                   title: "$off% OFF",
                   textStyle: Helper.setTextStyle(13.sp, FontWeight.w400,
                       color: Colors.white),
                   onTap: () {}),
-              SizedBox(width: 5.sp),
+              SizedBox(width: 5.w),
               InkWell(
                 onTap: removeFavTap,
                 child: const Icon(Icons.favorite),

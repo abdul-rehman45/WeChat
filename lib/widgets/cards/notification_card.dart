@@ -1,7 +1,7 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NotificationCard extends StatelessWidget {
   const NotificationCard(
@@ -82,7 +82,7 @@ class NotificationCard extends StatelessWidget {
             ),
             const Divider(),
             Container(
-              height: 100.sp,
+              height: 100.w,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),

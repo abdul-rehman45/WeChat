@@ -1,7 +1,7 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeTabBar extends StatelessWidget {
   const HomeTabBar({Key? key, this.selectedIndex = 0, required this.onTap})
@@ -34,10 +34,11 @@ class HomeTabBar extends StatelessWidget {
         ),
         AnimatedPositioned(
           left: _tabPosition(),
-          top: 3.sp,
+          top: 3,
+          duration: const Duration(milliseconds: 400),
           child: Container(
-            height: 40.sp,
-            width: SizerUtil.width * 0.45,
+            height: 40.h,
+            width: ScreenUtil.defaultSize.width * 0.45,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
               boxShadow: [
@@ -62,7 +63,6 @@ class HomeTabBar extends StatelessWidget {
               ),
             ),
           ),
-          duration: const Duration(milliseconds: 400),
         ),
       ],
     );
@@ -74,7 +74,7 @@ class HomeTabBar extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: Helper.setTextStyle(
-            14,
+            14.sp,
             FontWeight.w600,
             color: selectedIndex == index ? Colors.transparent : AppColors.text,
           ),
@@ -86,9 +86,9 @@ class HomeTabBar extends StatelessWidget {
       case 0:
         return 3.sp;
       case 1:
-        return SizerUtil.width * 0.43;
+        return ScreenUtil.defaultSize.width * 0.43;
       case 2:
-        return SizerUtil.width / 1.64;
+        return ScreenUtil.defaultSize.width / 1.64;
       default:
         return 0;
     }

@@ -1,8 +1,9 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ndialog/ndialog.dart';
-import 'package:sizer/sizer.dart';
+
 //import 'package:symphony/Constant/app_strings.dart';
 //import 'package:symphony/Modules/utilites/utilities.dart';
 
@@ -51,32 +52,32 @@ class MyProgressDialog {
         color: color ?? Colors.red,
       );
 
-  static setErrorDialog(ProgressDialog _progressDialog) {
-    _progressDialog.setTitle(setProgressTitle(null));
-    _progressDialog.setMessage(setProgressMessage(null));
-    _progressDialog.setLoadingWidget(setIcon());
-    Future.delayed(const Duration(seconds: 3), () => _progressDialog.dismiss());
+  static setErrorDialog(ProgressDialog progressDialog) {
+    progressDialog.setTitle(setProgressTitle(null));
+    progressDialog.setMessage(setProgressMessage(null));
+    progressDialog.setLoadingWidget(setIcon());
+    Future.delayed(const Duration(seconds: 3), () => progressDialog.dismiss());
   }
 
-  static setSuccessDialog(ProgressDialog _progressDialog,
+  static setSuccessDialog(ProgressDialog progressDialog,
       {String? title, String? message, int? time}) async {
-    _progressDialog.setTitle(setProgressTitle(title ?? "Success"));
-    _progressDialog.setMessage(
+    progressDialog.setTitle(setProgressTitle(title ?? "Success"));
+    progressDialog.setMessage(
         setProgressMessage(message ?? "Data Updated Successfully."));
-    _progressDialog.setLoadingWidget(
+    progressDialog.setLoadingWidget(
         setIcon(icon: Icons.check, color: Colors.greenAccent));
     await Future.delayed(
-        Duration(seconds: time ?? 3), () => _progressDialog.dismiss());
+        Duration(seconds: time ?? 3), () => progressDialog.dismiss());
   }
 
-  static setCustomMessageDialog(ProgressDialog _progressDialog,
+  static setCustomMessageDialog(ProgressDialog progressDialog,
       {String? title, String? message, int? seconds}) {
-    _progressDialog.setTitle(setProgressTitle(title ?? "Failure"));
-    _progressDialog.setMessage(setProgressMessage(
+    progressDialog.setTitle(setProgressTitle(title ?? "Failure"));
+    progressDialog.setMessage(setProgressMessage(
       message ?? "",
     )); // AppStrings.somethingWrong));
-    _progressDialog.setLoadingWidget(setIcon());
+    progressDialog.setLoadingWidget(setIcon());
     Future.delayed(
-        Duration(seconds: seconds ?? 3), () => _progressDialog.dismiss());
+        Duration(seconds: seconds ?? 3), () => progressDialog.dismiss());
   }
 }

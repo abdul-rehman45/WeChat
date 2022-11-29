@@ -2,7 +2,7 @@ import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:chat/widgets/button/custom_border_button.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NoRestaurantFound extends StatelessWidget {
   const NoRestaurantFound({Key? key, required this.onTap}) : super(key: key);
@@ -36,7 +36,7 @@ class NoRestaurantFound extends StatelessWidget {
               color: AppColors.text.withOpacity(0.5)),
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: 35.sp),
+        SizedBox(height: 35.h),
         SizedBox(
           width: 75.w,
           child: CustomBorderButton(

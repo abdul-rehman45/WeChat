@@ -1,7 +1,7 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-import 'package:sizer/sizer.dart';
 
 class PinPutField extends StatelessWidget {
   PinPutField(
@@ -28,7 +28,7 @@ class PinPutField extends StatelessWidget {
 
   static final _defaultPinTheme = PinTheme(
     width: 18.w,
-    height: 18.w,
+    height: 18.h,
     textStyle: const TextStyle(
         fontSize: 18, color: AppColors.text, fontWeight: FontWeight.w600),
     decoration: BoxDecoration(

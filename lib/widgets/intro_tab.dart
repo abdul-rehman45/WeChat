@@ -1,6 +1,6 @@
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IntroTab extends StatelessWidget {
   const IntroTab(
@@ -13,7 +13,7 @@ class IntroTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [

@@ -1,7 +1,7 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBorderButton extends StatelessWidget {
   const CustomBorderButton(
@@ -20,7 +20,7 @@ class CustomBorderButton extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 1.w),
+          padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 1),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: AppColors.theme),

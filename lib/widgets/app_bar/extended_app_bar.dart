@@ -1,8 +1,8 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sizer/sizer.dart';
 
 class ExtendedAppBar extends StatelessWidget {
   const ExtendedAppBar(
@@ -20,9 +20,10 @@ class ExtendedAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(8.sp),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(22.sp)),
+            borderRadius:
+                const BorderRadius.vertical(bottom: Radius.circular(22)),
             color: AppColors.theme,
             boxShadow: [
               BoxShadow(
@@ -58,15 +59,15 @@ class ExtendedAppBar extends StatelessWidget {
                   ),
                 Text(
                   title,
-                  style: Helper.setTextStyle(20.sp, FontWeight.w700,
+                  style: Helper.setTextStyle(20, FontWeight.w700,
                       color: Colors.white),
                 ),
                 if (isReviewDetail == true) Container(),
                 if (iconPath != null)
                   Image.asset(
                     iconPath!,
-                    width: 30.sp,
-                    height: 30.sp,
+                    width: 30.w,
+                    height: 30.h,
                   ),
               ],
             )

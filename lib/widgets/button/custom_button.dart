@@ -1,7 +1,7 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
           padding: padding ??
-              EdgeInsets.symmetric(vertical: 12.sp, horizontal: 10.sp),
+              const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             boxShadow: const [

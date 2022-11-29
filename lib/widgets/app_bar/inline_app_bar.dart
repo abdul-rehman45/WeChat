@@ -1,8 +1,9 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:get/get.dart';
-import 'package:sizer/sizer.dart';
 
 class InLineAppBar extends StatelessWidget implements PreferredSizeWidget {
   const InLineAppBar({
@@ -24,19 +25,20 @@ class InLineAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => isSearch == true && title != null
-      ? Size.fromHeight(SizerUtil.height * 0.07.sp)
-      : Size.fromHeight(height.sp);
+      ? Size.fromHeight(ScreenUtil.defaultSize.height * 0.07.h)
+      : Size.fromHeight(height.h);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(
-          left: 12.sp,
-          right: 12.sp,
-          bottom: 12.sp,
-        ),
+        padding: const EdgeInsets.only(
+          left: 12,
+          right: 12,
+          bottom: 12,
+        ).r,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(18.sp)),
+            borderRadius:
+                BorderRadius.vertical(bottom: const Radius.circular(18).r),
             color: AppColors.theme,
             boxShadow: [
               BoxShadow(
@@ -61,7 +63,7 @@ class InLineAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ? InkWell(
                         onTap: Get.back,
                         child: const Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8),
                           child: Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
@@ -79,8 +81,8 @@ class InLineAppBar extends StatelessWidget implements PreferredSizeWidget {
                 iconPath != null
                     ? Image.asset(
                         iconPath!,
-                        width: 24.sp,
-                        height: 24.sp,
+                        width: 24.w,
+                        height: 24.h,
                       )
                     : const SizedBox.shrink(),
               ],
@@ -91,7 +93,7 @@ class InLineAppBar extends StatelessWidget implements PreferredSizeWidget {
                     // title != null
                     //     ? EdgeInsets.only(left: 10, right: 10, top: 10)
                     //     :
-                    EdgeInsets.symmetric(horizontal: 10.sp),
+                    const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   // mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -128,16 +130,16 @@ class InLineAppBar extends StatelessWidget implements PreferredSizeWidget {
                       child: SizedBox(
                         //height: 30.sp,
                         child: Material(
-                          elevation: 5.sp,
-                          borderRadius: BorderRadius.circular(10.sp),
+                          elevation: 5,
+                          borderRadius: BorderRadius.circular(10.r),
                           child: TextFormField(
                             readOnly: true,
-                            cursorHeight: 16,
+                            cursorHeight: 16.h,
                             controller: controller,
                             style: Helper.setTextStyle(12.sp, FontWeight.w400),
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.sp),
+                                  borderRadius: BorderRadius.circular(10.r),
                                   borderSide: BorderSide.none,
                                 ),
                                 fillColor: Colors.white,

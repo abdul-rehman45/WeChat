@@ -13,6 +13,7 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  @override
   final bool _isLogin = false;
   @override
   void initState() {
@@ -26,29 +27,13 @@ class _SplashState extends State<Splash> {
         String user = await Preferences().getStringvalue("username");
 
         AppGlobals.username = user;
-
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const LoginScreen(),
-            ));
-        // } else if (user == "rehman") {
-        //   Navigator.pushReplacement(
-        //       context,
-        //       MaterialPageRoute(
-        //         builder: (context) => const HomePage(
-        //           name: "usman",
-        //         ),
-        //       ));
-        // } else {
-        //   Navigator.pushReplacement(
-        //       context,
-        //       MaterialPageRoute(
-        //         builder: (context) => const HomePage(
-        //           name: "rehman",
-        //         ),
-        //       ));
-        // }
+        if (mounted) {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const LoginScreen(),
+              ));
+        }
       } catch (e) {
         rethrow;
       }
@@ -60,9 +45,6 @@ class _SplashState extends State<Splash> {
   }
 
   _getStoredDate() async {
-    //bool login = await DataStorage().retrieveUserInfo();
-    //_isLogin = login;
-
     _startTimer();
   }
 

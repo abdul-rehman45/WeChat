@@ -1,7 +1,7 @@
 import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton(
@@ -29,7 +29,7 @@ class CustomIconButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
           padding: padding ??
-              EdgeInsets.symmetric(vertical: 12.sp, horizontal: 10.sp),
+              const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             boxShadow: const [
@@ -48,11 +48,11 @@ class CustomIconButton extends StatelessWidget {
                   children: [
                     Image.asset(
                       prefixIcon!,
-                      width: 22.sp,
-                      height: 22.sp,
+                      width: 22.w,
+                      height: 22.h,
                     ),
                     SizedBox(
-                      width: 5.sp,
+                      width: 5.w,
                     )
                   ],
                 ),
@@ -71,7 +71,7 @@ class CustomIconButton extends StatelessWidget {
               if (showNextIcon)
                 Row(
                   children: [
-                    SizedBox(width: 5.sp),
+                    SizedBox(width: 5.w),
                     const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.white,

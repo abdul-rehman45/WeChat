@@ -11,7 +11,7 @@ class AppImages {
 }
 
 class AppIcons {
-  // static String add = 'assets/icons/add.png';
+  static String logo = 'assets/icons/icon.jpg';
   // static String percent = 'assets/icons/percent.png';
   // static String reuse = 'assets/icons/reuse.png';
   // static String cross = 'assets/icons/cross.png';

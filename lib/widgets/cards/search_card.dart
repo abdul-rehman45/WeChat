@@ -2,7 +2,7 @@ import 'package:chat/constants/app_colors.dart';
 import 'package:chat/helper/helper.dart';
 import 'package:chat/widgets/review_rating.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchCard extends StatelessWidget {
   const SearchCard({
@@ -27,7 +27,7 @@ class SearchCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.all(8.sp),
+            padding: const EdgeInsets.all(8),
             child: Row(
               children: [
                 imageLink != ''
@@ -37,7 +37,7 @@ class SearchCard extends StatelessWidget {
                     : const CircleAvatar(
                         foregroundImage: AssetImage("image here"),
                       ),
-                SizedBox(width: 5.sp),
+                SizedBox(width: 5.w),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +59,7 @@ class SearchCard extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 2.sp),
+                      SizedBox(height: 2.h),
                       Row(
                         children: [
                           Text(
@@ -67,7 +67,7 @@ class SearchCard extends StatelessWidget {
                             style: Helper.setTextStyle(12.sp, FontWeight.w400,
                                 color: AppColors.text.withOpacity(0.7)),
                           ),
-                          SizedBox(width: 50.sp),
+                          SizedBox(width: 50.w),
                           Expanded(
                             child: Text(
                               address,
@@ -86,7 +86,7 @@ class SearchCard extends StatelessWidget {
           ),
           Divider(
             color: AppColors.text.withOpacity(0.25),
-            height: 10.sp,
+            height: 10.h,
           ),
         ],
       ),
