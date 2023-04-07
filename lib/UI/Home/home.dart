@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,
-          title: const Text(
+          title: Text(
             "auth master",
             style: TextStyle(color: Colors.redAccent),
           )),

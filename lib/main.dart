@@ -1,4 +1,5 @@
 import 'package:chat/Services/firebaseServices/firebaseNotiication/notificationService.dart';
+import 'package:chat/UI/Home/home.dart';
 import 'package:chat/UI/SplashScreen/splashScreen.dart';
 import 'package:chat/constants/app_colors.dart';
 
@@ -34,7 +35,9 @@ class MyApp extends StatelessWidget {
               primarySwatch: Palette.color,
               //  scaffoldBackgroundColor: Colors.grey,
             ),
-            home: const Splash(),
+            home: const Home(),
+
+            //Splash(),
           );
         },
       ),
